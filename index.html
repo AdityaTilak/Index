@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anjelica 💖</title>
+<style>
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        background: linear-gradient(135deg, #ff9ecf, #ffc3e6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        max-width: 350px;
+        width: 90%;
+        position: relative;
+    }
+
+    h1 {
+        color: #e91e63;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+    }
+
+    button {
+        padding: 14px 28px;
+        font-size: 18px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    #yesBtn {
+        background-color: #e91e63;
+        color: white;
+    }
+
+    #noBtn {
+        background-color: #999;
+        color: white;
+        position: absolute;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>To Anjelica 💕</h1>
+    <p>Will you be my Valentine?</p>
+
+    <div class="buttons">
+        <button id="yesBtn">YES 💘</button>
+        <button id="noBtn">NO 😅</button>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    let yesSize = 1;
+
+    function moveNoButton() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+
+        yesSize += 0.2;
+        yesBtn.style.transform = `scale(${yesSize})`;
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("touchstart", function(e) {
+        e.preventDefault();
+        moveNoButton();
+    });
+
+    yesBtn.addEventListener("click", function() {
+        document.body.innerHTML = `
+            <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:linear-gradient(135deg,#ff9ecf,#ffc3e6);text-align:center;animation:fadeIn 0.6s ease;">
+                <div>
+                    <h1 style="color:#e91e63;font-size:38px;">She Said YES 💖</h1>
+                    <p style="font-size:24px;margin-top:20px;">Rannuci's at 9:30pm :*</p>
+                    <p style="font-size:30px;margin-top:20px;">💘✨🥂</p>
+                </div>
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
